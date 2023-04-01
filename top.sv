@@ -16,7 +16,7 @@ import uvm_pkg::*;
 module top;
 
 mux_intf cif();
-mux dut(.d0(cif.d0),.d1(cif.d1),.d2(cif.d2),.d3(cif.d3),.d4(cif.d4),.d5(cif.d5),.d6(cif.d6),.d7(cif.d7),.sel(cif.sel),.out(cif.out));
+mux8x1 dut(.d0(cif.d0),.d1(cif.d1),.d2(cif.d2),.d3(cif.d3),.d4(cif.d4),.d5(cif.d5),.d6(cif.d6),.d7(cif.d7),.sel(cif.sel),.out(cif.out));
 
 initial begin
 	uvm_config_db#(virtual mux_intf)::set(uvm_root::get(),"","vif",cif);

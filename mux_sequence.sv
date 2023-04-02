@@ -11,7 +11,7 @@ function new (string  name = "mux_sequence");
 endfunction
 
 
-task body();
+virtual task body();
  tx_d:tx_data::type_id::create("tx_d");
   repeat(1)
     begin

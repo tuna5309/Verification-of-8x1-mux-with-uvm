@@ -17,7 +17,7 @@ function new(string name = "" , uvm_component parent);
 	    mux_cover= new();
    endfunction   
 
-function build_phase(uvm_phase phase);
+virtual function build_phase(uvm_phase phase);
 endfunction
 
 
@@ -124,16 +124,16 @@ covergroup mux_cover;
 
 
 
-function void write (tx_data cdata);
+virtual function void write (tx_data cdata);
 	cover_data = cdata;
 	mux_cover.sample();
 endfunction
 
-function void extract_phase(uvm_phase phase);
+virtual function void extract_phase(uvm_phase phase);
 		covarage=mux_cover.get_covarage();
 endfunction
 	
-function void report_phase(uvm_phase phase);
+virtual function void report_phase(uvm_phase phase);
 		 `uvm_info(get_type_name(), $sformatf("Coverage is: %f", covarage), UVM_LOW)
 endfunction 
 

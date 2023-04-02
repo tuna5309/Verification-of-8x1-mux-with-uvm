@@ -12,7 +12,7 @@ class mux_monitor extends uvm_monitor;
  endfunction : new
  
 
- function void build_phase(uvm_phase phase);
+ virtual function void build_phase(uvm_phase phase);
   		if (!(uvm_config_db#(virtual mux_intf)::get(this,"","vif",vif))) begin
 	  			`uvm_fatal("monitor","monitor cant get interface")
   		end
@@ -22,7 +22,7 @@ class mux_monitor extends uvm_monitor;
  endfunction : build_phase
  
 
- task run_phase(uvm_phase phase);
+ virtual task run_phase(uvm_phase phase);
  	forever
 	begin @(vif.d1 or vif.d2 or vif.d3 or vif.d4 or vif.d5 or vif.d6 or vif.d7 or vif.sel or vif.out); 
  			mon_tx.d0=vif.d0;

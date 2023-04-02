@@ -12,14 +12,14 @@ function new(string name = "" , uvm_component parent);
 endfunction : new
 
 
-function void build_phase(uvm_phase phase);
+virtual function void build_phase(uvm_phase phase);
    if(!(uvm_config_db#(virtual mux_intf)::get(this,"","vif",vif))) begin
 	   `uvm_fatal("driver","unable to get interface")
 end
 endfunction 
 
 
-task run_phase(uvm_phase phase);
+virtual task run_phase(uvm_phase phase);
 tx_data tx_d;	
 forever begin 
 	seq_item_port.get_next_item(tx_d);

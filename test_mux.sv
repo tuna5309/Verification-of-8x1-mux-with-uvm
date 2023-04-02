@@ -14,16 +14,16 @@ function new(string name = "", uvm_component parent);
 	super.new(name,parent);
 endfunction : new
 
-function void build_phase(uvm_phase phase);	
+virtual function void build_phase(uvm_phase phase);	
  env:mux_env::type_id::create("env",this);
 endfunction : build_phase
 
 
-function void end_of_elobartion_phase(uvm_phase phase);
+virtual function void end_of_elobartion_phase(uvm_phase phase);
 	      $display("End of eleboration phase in agent");
 endfunction : end_of_elobartion_phase
 
-task run_phase(uvm_phase phase);
+virtual task run_phase(uvm_phase phase);
 	phase.raise_objection(this);
 	`uvm_warning("","8X1 MUX TEST")
 	seq_test=mux_sequence::type_id::create("seq_test",this);
